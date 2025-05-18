@@ -1,0 +1,95 @@
+.trending-section {
+  background-color: #f6f8fa;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 100%;
+  font-family: sans-serif;
+}
+
+.trending-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.trending-header a {
+  text-decoration: none;
+  color: #0071ea;
+}
+
+.gift-cards {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.gift-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  width: 300px;
+  flex-shrink: 0;
+  
+}
+
+.gift-card img {
+  width: 90%;
+  padding: 5%;
+  height: 160px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-radius: 25px;
+}
+
+.gift-details {
+  padding: 12px;
+}
+
+.gift-details h4 {
+  margin: 0 0 5px;
+  font-size: 16px;
+}
+
+.gift-details p {
+  font-size: 14px;
+  margin: 0 0 5px;
+  color: #444;
+}
+
+.gift-details small {
+  color: #666;
+}
+
+.gift-rating {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.gift-pricing {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0;
+}
+
+.gift-pricing del {
+  color: gray;
+}
+
+.deal-price {
+  font-weight: bold;
+  color: #0071ea;
+}
+
+.discount {
+  color: green;
+  font-weight: bold;
+}
+
+.gift-code {
+  font-size: 14px;
+  color: #9b1c1c;
+}

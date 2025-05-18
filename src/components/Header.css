@@ -1,0 +1,99 @@
+.nav1{
+  margin: auto;
+  background-color: white;
+}
+.header {
+  display: flex;
+  width: 1200px;
+  margin:auto;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-bottom: 1px solid white;
+  font-family: Arial, sans-serif;
+  background-color: white;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: green;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 2px solid green;
+  border-radius: 25px;
+  padding: 4px;
+  width: 50%;
+  max-width: 600px;
+  background-color: white;
+}
+
+.search-bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 25px 0 0 25px;
+}
+
+.location-select {
+  border: none;
+  background-color: #f0f0f0;
+  padding: 8px 12px;
+  border-radius: 20px;
+  margin-left: 5px;
+  font-size: 14px;
+}
+
+.search-btn {
+  background-color: green;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 50%;
+  margin-left: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 18px;
+  position: relative;
+}
+
+.notification {
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background-color: #000833;
+  color: white;
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: 10px;
+}
+
+.sign-in {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid #ddd;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.signin-text {
+  font-weight: bold;
+}
