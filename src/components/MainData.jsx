@@ -1,44 +1,59 @@
-import React from "react";
-import { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./MainData.css";
-import {giftData} from "../../data/db.json";
 
 const MainData = () => {
-    let arr=giftData
-    const [data,setData] = useState(arr)
+  const [data, setData] = useState([]);
+  const [limit,setLimit]=useState(15)
+  // Function to fetch data
+  function handleData() {
+    setLimit(prev=>prev+15)
+    fetch(`https://groupon-backend-znhk.onrender.com/groupon/get-product?limit=${limit}`)
+      .then((res) => res.json())
+      .then((json) => {
+        setData(json);
+        console.log("Fetched Data:", json);
+      })
+      .catch((err) => console.error("Fetch error:", err));
+  }
 
-    useEffect(()=>{
-        setData(arr)
-    },[arr])
+  // Automatically load data on mount
+  useEffect(() => {
+    handleData();
+  }, []);
 
-    console.log(data[1])
-return (
-<>
-<div className="main-container">
-   {data.map(e=>(
-    <div className="card">
-      <div className="image-container">
-        <img src={e.img} />
-        <span className="tag">% Save Big This May</span>
-        <span className="heart">♡</span>
+  return (
+    <>
+      <div className="main-container">
+        {data.map((e) => (
+          <div className="card" key={e.id}>
+            <div className="image-container">
+              <img src={e.img} alt={e.title} />
+              <span className="tag">% Save Big This May</span>
+              <span className="heart">♡</span>
+            </div>
+            <div className="card-content">
+              <p className="subtitle">{e.subtitle}</p>
+              <p className="title">{e.title}</p>
+              <p className="address">{e.address}</p>
+              <p className="rating">
+                ⭐ {e.rating}{" "}
+                <span className="reviews">({e.reviews})</span>
+              </p>
+              <div className="price-row">
+                <span className="original-price">${e.originalPrice}</span>
+                <span className="discount-price">${e.dealPrice}</span>
+                <span className="discount-percent">{e.discount}</span>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
-      <div className="card-content">
-        <p className="subtitle">{e.subtitle}</p>
-        <p className="title">{e.title}</p>
-        <p className="address">{e.address} <span className="distance"></span></p>
-        <p className="rating">⭐ {e.rating} <span className="reviews">({e.reviews})</span></p>
-        <div className="price-row">
-          <span className="original-price">${e.originalPrice}</span>
-          <span className="discount-price">${e.dealPrice}</span>
-          <span className="discount-percent">{e.discount}</span>
-        </div>
-      </div>
-    </div>
-    
-    ))}
-</div>
-    <button className="btn-main">LOAD</button>
-</>
+
+      {/* Reload Button */}
+      <button className="btn-main" onClick={handleData}>
+        LOAD
+      </button>
+    </>
   );
 };
 
